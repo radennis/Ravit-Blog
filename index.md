@@ -1,7 +1,15 @@
-## Welcome to my blog
+# Welcome to my blog
 
-This is my blog where I would add posts about Kusto (Azure Data Explorer). 
+My name is Ravit Dennis and I'm a Software Engineer at Microsoft in the Kusto (Azure Data Explorer) team.
 
-The content of this blog can be viewed at [aka.ms/ravitblog](https://aka.ms/ravitblog)
+In this blog I would add posts about interesting features, and how-tos that many of our customers find useful.
 
-Feel free to ask for the next content I should write about!
+## Blogs
+
+* [Kusto and Flow](blogs/KustoAndFlow.md)
+
+## More information
+
+* [Kusto documentation](https://docs.microsoft.com/en-us/connectors/kusto/)
+
+Feel free to share and/or ask for the next content I should write about!
