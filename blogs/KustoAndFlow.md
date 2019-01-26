@@ -36,15 +36,15 @@ If there is new data, it would ingest the new data into the smaller table.
 For this purpose I would use my Kusto cluster "radennisscus", and a database called "FlowBlog".
 Note that for the "cluster name" below I would use the URI that appears on the "cluster overview page" under "URI"
 
-![Create Flow from Blank](./images/kusto-cluster-portal.png "Create Flow from Blank")
+![Create Flow from Blank](../resources/images/kusto-cluster-portal.png "Create Flow from Blank")
 
 For this example, my BigTable contains 23 records
 
-![Create Flow from Blank](./images/big-table-count.png "Create Flow from Blank")
+![Create Flow from Blank](../resources/images/big-table-count.png "Create Flow from Blank")
 
 The BigTable includes two kinds of records. "Not interesting data" and "Interesting data". 
 
-![Create Flow from Blank](./images/big-table-data.png "Create Flow from Blank")
+![Create Flow from Blank](../resources/images/big-table-data.png "Create Flow from Blank")
 
 The flow would ingest only the "Interesting data" records into the SmallTable.
 
@@ -56,11 +56,11 @@ For this example I would use a "Recurrence" trigger, to check every once in a wh
 
 So first thing we would want to do is navigate to [Flow's site](https://preview.flow.microsoft.com/en-us/), click on "My Flows"-> "+ New" -> Create from Blank
 
-![Create Flow from Blank](./images/create-flow-from-blank.png "Create Flow from Blank")
+![Create Flow from Blank](../resources/images/create-flow-from-blank.png "Create Flow from Blank")
 
 Then we would add the new "Recurrence" trigger as the first action.
 
-![Add recurrence trigger](./images/add-recurrence-trigger.png "Add recurrence trigger")
+![Add recurrence trigger](../resources/images/add-recurrence-trigger.png "Add recurrence trigger")
 
 Then we would run a query on the large table to see whether there is new data ingested into it. 
 For that purpose we would need to use the "Run query and list results" action which runs a query (meaning it should not start with a dot, or else it is a control command) and lists its results in raw way. We need to use that to get the actual number of results.
@@ -72,18 +72,18 @@ In the query, I would use the following query which count how many records exist
  BigTable | where Timestamp > ago(1h) | count
 ```
 
-![Add recurrence trigger](./images/query-count-bigtable.png "Add recurrence trigger")
+![Add recurrence trigger](../resources/images/query-count-bigtable.png "Add recurrence trigger")
 
 Next we need to add a condition, on the result, if there is new data we would ingest the data into the small table, else we will not do anything.
 
 To do that add a new action and search for "condition" 
 
-![Add recurrence trigger](./images/add-condition.png "Add recurrence trigger")
+![Add recurrence trigger](../resources/images/add-condition.png "Add recurrence trigger")
 
 When clicking the first box, you would be given the results of the previous Kusto action. Click on "count", "is greater than" and 0.
 Clicking the count would automatically add an "Apply to each" action, that's because the result of the previous action is an array of results, on our case "count" returns just one line of results with the count, therefore the condition would actually run only once.
 
-![Add recurrence trigger](./images/condition-with-kusto-value.png "Add recurrence trigger")
+![Add recurrence trigger](../resources/images/condition-with-kusto-value.png "Add recurrence trigger")
 
 In the "If yes" add an action that ingests the interesting data into your SmallTable.
 This time the query we needs to run is a control command. In that case we need to use the "Run control command and visualize results". We would use the same cluster name and database (for this, you can actually also use a different cluster/database is you want to transfer the data into another cluster) and the following query.
@@ -94,7 +94,7 @@ This time the query we needs to run is a control command. In that case we need t
 
 Since the "Run control command and visualize results" actually visualizes the results, you would need to pick a chart type, you can just use an "Html Table", we would not use the results of this action.
 
-![Add recurrence trigger](./images/ingest-data-flow.png "Add recurrence trigger")
+![Add recurrence trigger](../resources/images/ingest-data-flow.png "Add recurrence trigger")
 
 We finished writing the Flow. Now you can click on the "save" button at the top right, to save the flow and manually trigger it to test it out, by clicking on "Test" -> I'll perform the manual trigger -> "Run flow"
 
