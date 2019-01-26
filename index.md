@@ -1,10 +1,10 @@
 # Welcome to my blog
 
-My name is Ravit Dennis and I'm a Software Engineer at Microsoft in the Kusto (Azure Data Explorer) team.
+My name is [Ravit Dennis](https://www.linkedin.com/in/ravit-dennis-239a5839) and I'm a Software Engineer at Microsoft in the Kusto (Azure Data Explorer) team.
 
 In this blog I would add posts about interesting features, and how-tos that many of our customers find useful.
 
-## Blogs
+## Posts
 
 * [Kusto and Flow](blogs/KustoAndFlow.md)
 

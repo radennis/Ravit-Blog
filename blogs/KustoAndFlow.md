@@ -68,7 +68,7 @@ For that purpose we would need to use the "Run query and list results" action wh
 After adding the action, add the cluster URI, the database name and the table name where the data resides. 
 In the query, I would use the following query which count how many records exist in the last 1 hour.
 
-```
+```Kusto
  BigTable | where Timestamp > ago(1h) | count
 ```
 
@@ -76,7 +76,7 @@ In the query, I would use the following query which count how many records exist
 
 Next we need to add a condition, on the result, if there is new data we would ingest the data into the small table, else we will not do anything.
 
-To do that add a new action and search for "condition" 
+To do that add a new action and search for "condition"
 
 ![Add recurrence trigger](../resources/images/add-condition.png "Add recurrence trigger")
 
@@ -88,7 +88,7 @@ Clicking the count would automatically add an "Apply to each" action, that's bec
 In the "If yes" add an action that ingests the interesting data into your SmallTable.
 This time the query we needs to run is a control command. In that case we need to use the "Run control command and visualize results". We would use the same cluster name and database (for this, you can actually also use a different cluster/database is you want to transfer the data into another cluster) and the following query.
 
-```
+```Kusto
 .set-or-append SmallTable <| BigTable | where Timestamp > ago(1h) | where Data == "Interesting data"
 ```
 
