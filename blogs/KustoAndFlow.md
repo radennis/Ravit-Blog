@@ -11,7 +11,7 @@ I've seen many customers looking for automating their Kusto queries and control 
 As an engineer/manager you might be data driven and want to look at data to decide which incidents happen more often and should be looked at, which features are being used the most, what feedbacks your feature got, etc. I for instance use that feature massively to debug my features.
 Instead of waking up every morning and querying the data, you could just setup a Flow to inform you of what you're most interested in.
 You might want to do that on a daily basis, or even get the email [only when something actually happens](https://docs.microsoft.com/en-us/azure/kusto/tools/flow#example-7---create-custom-html-table).
-[Here's](https://docs.microsoft.com/en-us/azure/kusto/tools/flow#example-7---create-custom-html-table) and examples of how to do that.
+[Here's](https://docs.microsoft.com/en-us/azure/kusto/tools/flow#example-7---create-custom-html-table) an example of how to do that.
 
 ### Ingesting data from another source into/from Kusto
 
