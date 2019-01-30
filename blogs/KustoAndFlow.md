@@ -2,7 +2,7 @@
 
 In this blog you would learn how to automate Kusto queries/control commands.
 
-## Why shoud you use Kusto Flow
+## Why should you use Kusto Flow
 
 I've seen many customers looking for automating their Kusto queries and control commands. Here's a small list of things I've seen customers benefit from Kusto Flow, that you might find useful as well.
 
@@ -42,7 +42,7 @@ For this example, my BigTable contains 23 records
 
 ![Create Flow from Blank](../resources/images/big-table-count.PNG "Create Flow from Blank")
 
-The BigTable includes two kinds of records. "Not interesting data" and "Interesting data". 
+The BigTable includes two kinds of records. "Not interesting data" and "Interesting data".
 
 ![Create Flow from Blank](../resources/images/big-table-data.PNG "Create Flow from Blank")
 
@@ -65,11 +65,12 @@ Then we would add the new "Recurrence" trigger as the first action.
 Then we would run a query on the large table to see whether there is new data ingested into it. 
 For that purpose we would need to use the "Run query and list results" action which runs a query (meaning it should not start with a dot, or else it is a control command) and lists its results in raw way. We need to use that to get the actual number of results.
 
-After adding the action, add the cluster URI, the database name and the table name where the data resides. 
-In the query, I would use the following query which count how many records exist in the last 1 hour.
+After adding the action, add the cluster URI, the database name and the table name where the data resides.
+In the Query section, I would use the following query which counts how many new records exist in the BigTable. The query first checks what is the last time records was ingested to the SmallTable, by getting the maximum time of the records, and then checking if there are newer records in the BigTable.
 
 ```Kusto
- BigTable | where Timestamp > ago(1h) | count
+ let last_time = toscalar(SmallTable | summarize max(Timestamp));
+BigTable | where Timestamp > last_time and Data == "Interesting data" | count
 ```
 
 ![Add recurrence trigger](../resources/images/query-count-bigtable.PNG "Add recurrence trigger")
@@ -89,7 +90,9 @@ In the "If yes" add an action that ingests the interesting data into your SmallT
 This time the query we needs to run is a control command. In that case we need to use the "Run control command and visualize results". We would use the same cluster name and database (for this, you can actually also use a different cluster/database is you want to transfer the data into another cluster) and the following query.
 
 ```Kusto
-.set-or-append SmallTable <| BigTable | where Timestamp > ago(1h) | where Data == "Interesting data"
+.set-or-append SmallTable <|
+let last_time = toscalar(SmallTable | summarize max(Timestamp));
+BigTable | where Timestamp > last_time and Data == "Interesting data"
 ```
 
 Since the "Run control command and visualize results" actually visualizes the results, you would need to pick a chart type, you can just use an "Html Table", we would not use the results of this action.
