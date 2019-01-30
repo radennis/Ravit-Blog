@@ -15,7 +15,7 @@ You might want to do that on a daily basis, or even get the email [only when som
 
 ### Ingesting data from another source into/from Kusto
 
-I've seen many customers looking into moving their data from one place to another. For instance, you data may reside in Kusto and you might want to use it in SQL as well, instead of ingesting the data both into Kusto and into DQL you could just ingest it into Kusto and have Flow ingest any data being ingested into SQL as well. And the other way around of course.
+I've seen many customers looking into moving their data from one place to another. For instance, you data may reside in Kusto and you might want to use it in SQL as well, instead of ingesting the data both into Kusto and into SQL you could just ingest it into Kusto and have Flow ingest any data being ingested into SQL as well. And the other way around of course.
 
 To do that, you could just setup a Flow that would run every once in a while and would ingest new data into SQL. See [here](https://docs.microsoft.com/en-us/azure/kusto/tools/flow#example-7---create-custom-html-table) for more information about it.
 
