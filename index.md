@@ -7,6 +7,7 @@ In this blog I would add posts about interesting features, and how-tos that many
 ## Posts
 
 * [Kusto and Flow](blogs/KustoAndFlow.md)
+* [How to save $$$ using Flow](blogs/SaveMoneyUsingFlow.md)
 
 ## More information
 
