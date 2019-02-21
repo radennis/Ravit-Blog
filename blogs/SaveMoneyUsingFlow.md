@@ -40,6 +40,10 @@ Then add a "Azure Resource Manager - Invoke resource operation" action and provi
 
 Save the flow.
 
+You can try it out, by clicking the "Test" at the top right. After the flow completes you can see that your cluster has been successfully stopped in the portal.
+
+![Add recurrence trigger](../resources/images/cluster-stopped.PNG "Add recurrence trigger")
+
 Now we can continue to create another flow that would start your cluster.
 
 This flow should be very similar to the previous flow. You should start by creating a trigger action, then add "Azure Resource Manager - Invoke resource operation" action. Put the same values as the previous flow with one change, in the action name put "start".
