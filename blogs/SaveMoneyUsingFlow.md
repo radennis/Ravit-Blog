@@ -16,25 +16,25 @@ In this post I'll use a Recurrence trigger.
 
 So first thing we would want to do is navigate to [Flow's site](https://preview.flow.microsoft.com/en-us/), click on "My Flows"-> "+ New" -> Create from Blank
 
-![Trigger](../resources/images/trigger-6pm.PNG "Trigger")
+![Trigger](../resources/images/create-flow-from-blank.PNG "Trigger")
 
 Then we would add the new "Recurrence" trigger as the first action.
 
-![Add recurrence trigger](../resources/images/add-recurrence-trigger.PNG "Add recurrence trigger")
+![Add recurrence trigger](../resources/images/trigger-6pm.PNG "Add recurrence trigger")
 
 Choose the times where you are planning to stop using your cluster.
 
 Then add a "Azure Resource Manager - Invoke resource operation" action and provide the information required, such as your cluster's subscription, resource group, resource id.
 
-    | Setting | Description and value |
-    | --- | --- | --- |
+    | Setting   | Description and value   |
+    | --------- | ----------------------- |
     | **Subscription** | Your cluster's subscription id. |
     | **Resource Group** | The resource group where your cluster is. |
     | **Resource Provider** | Microsoft.Kusto |
     | **Short Resource id** | Provide the short resource id of your cluster which should be of the format clusters/{clusterName} |
     | **Client API version** | Use the latest Kusto API version, for instance currently it's 2019-01-21. |
     | **Action Name** | "stop" to stop your cluster and "start" to start your cluster. |
-    |  |  |
+    |                  |                       | 
 
 ![Add recurrence trigger](../resources/images/azure-resource-manager-invoke.PNG "Add recurrence trigger")
 
