@@ -26,15 +26,14 @@ Choose the times where you are planning to stop using your cluster.
 
 Then add a "Azure Resource Manager - Invoke resource operation" action and provide the information required, such as your cluster's subscription, resource group, resource id.
 
-    | Setting   | Description and value   |
-    | --------- | ----------------------- |
-    | **Subscription** | Your cluster's subscription id. |
-    | **Resource Group** | The resource group where your cluster is. |
-    | **Resource Provider** | Microsoft.Kusto |
-    | **Short Resource id** | Provide the short resource id of your cluster which should be of the format clusters/{clusterName} |
-    | **Client API version** | Use the latest Kusto API version, for instance currently it's 2019-01-21. |
-    | **Action Name** | "stop" to stop your cluster and "start" to start your cluster. |
-    |                  |                       | 
+| Setting   | Description and value   |
+| --------- | ----------------------- |
+| **Subscription** | Your cluster's subscription id. |
+| **Resource Group** | The resource group where your cluster is. |
+| **Resource Provider** | Microsoft.Kusto |
+| **Short Resource id** | Provide the short resource id of your cluster which should be of the format clusters/{clusterName} |
+| **Client API version** | Use the latest Kusto API version, for instance currently it's 2019-01-21. |
+| **Action Name** | "stop" to stop your cluster and "start" to start your cluster. |
 
 ![Add recurrence trigger](../resources/images/azure-resource-manager-invoke.PNG "Add recurrence trigger")
 
