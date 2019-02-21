@@ -48,3 +48,5 @@ Now we can continue to create another flow that would start your cluster.
 This flow should be very similar to the previous flow. You should start by creating a trigger action, then add "Azure Resource Manager - Invoke resource operation" action. Put the same values as the previous flow with one change, in the action name put "start".
 
 That's it, you configured a flow that would stop your cluster on your off hours, and would start it even before you notice it!
+
+> Note: Starting the cluster would "warm" your data and will re-read it from cold storage into the cache, therefore is it suggested to allow some time for that and start your cluster enought time (depending on the data and caching policy) before you are planning to use it.
