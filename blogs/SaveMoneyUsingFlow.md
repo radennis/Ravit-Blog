@@ -1,10 +1,10 @@
 # How to save $$$ when using Azure Data Explorer
 
-In this blog I would show you how to trigger automatic stop and start calls for your Azure Data Explorer cluster which would save you $$$.
+Azure Data Explore is worth your while, now see how you can get the best bang for your buck while using it. In this blog I show you how to trigger automatic stop and start calls for your Azure Data Explorer cluster which saves you $$$.
 
 ## Why should you read this
 
-Many of our customers are worried about the costs of an Azure Data Explorer cluster. One thing you could do, if you know you would not be using your cluster after end-of-day (or some other time) you could configure a Flow that would automatically stop your cluster by your end if your day and would automatically start your cluster before you get to work. How cool is that ha?
+Everyone cares about costs right? One thing you could do, if you know you would not be using your cluster after end-of-day (or some other time) you could configure a Flow that would automatically stop your cluster by your end if your day and would automatically start your cluster before you get to work. How cool is that ha?
 
 ### First the trigger
 
