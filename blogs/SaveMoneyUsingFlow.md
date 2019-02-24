@@ -14,38 +14,38 @@ If you are working at different times and do not want to commit to specific hour
 
 In this post, I’ll use a Recurrence trigger.
 
-The first thing we want to do is navigate to the [Microsoft Flow site](https://preview.flow.microsoft.com/en-us/), click on "My Flows"-> "+ New" -> Create from Blank
+1. The first thing we want to do is navigate to the [Microsoft Flow site](https://preview.flow.microsoft.com/en-us/), click on "My Flows"-> "+ New" -> Create from Blank
 
-![Trigger](../resources/images/create-flow-from-blank.PNG "Trigger")
+    ![Trigger](../resources/images/create-flow-from-blank.PNG "Trigger")
 
-Then add the new "Recurrence" trigger as the first action.
+1. Add the new "Recurrence" trigger as the first action.
 
-![Add recurrence trigger](../resources/images/trigger-6pm.PNG "Add recurrence trigger")
+    ![Add recurrence trigger](../resources/images/trigger-6pm.PNG "Add recurrence trigger")
 
-Choose the times when you plan to stop using your cluster.
+    Choose the times when you plan to stop using your cluster.
 
-Then add a "Azure Resource Manager - Invoke resource operation" action and provide the information required, such as your cluster's subscription, resource group, and resource id.
+1. Add a "Azure Resource Manager - Invoke resource operation" action and provide the information required, such as your cluster's subscription, resource group, and resource id.
 
-| Setting   | Description and value   |
-| --------- | ----------------------- |
-| **Subscription** | Your cluster's subscription id. |
-| **Resource Group** | The resource group where your cluster is located. |
-| **Resource Provider** | Microsoft.Kusto |
-| **Short Resource id** | Provide the short resource id of your cluster. Format: clusters/{clusterName}. |
-| **Client API version** | Use the latest Kusto API version, for instance currently it's 2019-01-21. |
-| **Action Name** | "stop" to stop your cluster and "start" to start your cluster. |
+    | Setting   | Description and value   |
+    | --------- | ----------------------- |
+    | **Subscription** | Your cluster's subscription id. |
+    | **Resource Group** | The resource group where your cluster is located. |
+    | **Resource Provider** | Microsoft.Kusto |
+    | **Short Resource id** | Provide the short resource id of your cluster. Format: clusters/{clusterName}. |
+    | **Client API version** | Use the latest Kusto API version, for instance currently it's 2019-01-21. |
+    | **Action Name** | "stop" to stop your cluster and "start" to start your cluster. |
 
-![Add recurrence trigger](../resources/images/azure-resource-manager-invoke.PNG "Add recurrence trigger")
+    ![Add recurrence trigger](../resources/images/azure-resource-manager-invoke.PNG "Add recurrence trigger")
 
-Save the flow.
+1. Save the flow.
 
-Try it out, by clicking the "Test" at the top right. After the flow completes,  you see that your cluster has been successfully stopped in the portal.
+1. Try it out, by clicking the "Test" at the top right. After the flow completes,  you see that your cluster has been successfully stopped in the portal.
 
-![Add recurrence trigger](../resources/images/cluster-stopped.PNG "Add recurrence trigger")
+    ![Add recurrence trigger](../resources/images/cluster-stopped.PNG "Add recurrence trigger")
 
-Now, we can continue to create another flow that would start your cluster.
+1. Now, we can continue to create another flow that would start your cluster.
 
-This flow will be very similar to the previous flow. You start by creating a trigger action, then add a “Azure Resource Manager - Invoke resource operation” action. Put the same values as the previous flow with one change. In the action name, put “start”.
+    This flow will be very similar to the previous flow. You start by creating a trigger action, then add a “Azure Resource Manager - Invoke resource operation” action. Put the same values as the previous flow with one change. In the action name, put “start”.
 
 That’s it! You have now configured a flow that stops your cluster during your off hours, and starts it even before you need it!
 
