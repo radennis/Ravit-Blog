@@ -1,12 +1,16 @@
 # How to enable optimized autoscale on your cluster
 
-In this blog you would learn how to how to run REST requests on Kusto clusters to enable features, specifically in this post I will show you how to enable optimized autoscale feature which would automatically scale your cluster based on any need. 
+In this blog you learn how to how to  enable optimized autoscale feature on your cluster, which would enable your cluster to scale between a minimum and maximum capacity (number of instances) you set. 
+
+In addition, you will also learn how to run REST requests on Kusto resource and configure them and how to download armclient tool which enables you to run ARM requests very easily.
 
 ## Preparation
 
 To be able to download armclient you first need to download [chocolatey](https://chocolatey.org/docs/installation)
 
 Then you can use chocolatey to download [armclient](https://chocolatey.org/packages/ARMClient)
+
+ARM client is an easy tool that would help you send requests to ARM without having to generate a token etc.
 
 ## Instructions
 
@@ -27,10 +31,10 @@ Take the response and add the following section, this is the configuration of th
       "maximum": 8
     },`
 
-Take the response of the command the above section and save it into a json file. 
+Take the response of the command the above section and save it into a json file.
 
-The run the following command to PUT the cluster object including the optimized autoscale setting. This would enable the optimized autoscale on your cluster.
+Then run the following command to PUT the cluster object including the optimized autoscale setting. This would enable the optimized autoscale on your cluster.
 
-`armclient PUT /subscriptions/11d5f159-a21d-4a6c-8053-c3aae30057cf/resourceGroups/radennisgeneral/providers/Microsoft.Kusto/clusters/radennisscus?api-version=2019-05-15 @C:\Users\radennis\Desktop\temp\clusteroptimized.json -verbose`
+`armclient PUT /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroupname/providers/Microsoft.Kusto/clusters/yourclustername?api-version=2019-05-15 @pathToFileSaved.json -verbose`
 
-This could take a few minutes, after the command returns your cluster will be all set.
+This could take a few minutes, after the command returns, your cluster will be all set.
