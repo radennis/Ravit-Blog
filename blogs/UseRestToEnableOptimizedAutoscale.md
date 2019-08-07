@@ -8,7 +8,7 @@ Note, you can enable optimized autoscale feature [using the portal](https://docs
 
 ## What is the optimized autoscale feature
 
-When you create your cluster, it is created with 2 instances count. When the time comes and your data grows, consumption and CU grow you would want to scale out your cluster. When you consume less you would want to save COGS and scale in your cluster.
+When you create your cluster, it is created with 2 instances count. When the time comes and your data grows, consumption and CPU grow you would want to scale out your cluster. When you consume less you would want to save COGS and scale in your cluster.
 
 To do that, you can either configure an [Azure autoscale rule](https://docs.microsoft.com/en-in/azure/data-explorer/manage-cluster-horizontal-scaling#custom-autoscale) that based on some metrics would scale in/out your cluster.
 
