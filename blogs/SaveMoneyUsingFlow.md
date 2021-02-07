@@ -6,7 +6,7 @@ Azure Data Explore is worth your while, now see how you can get the best bang fo
 
 Everyone cares about costs right? One thing you can do to minimize your costs, if you know you aren't using your cluster at a certain time, configure a Flow that will automatically stop your cluster when it isn't being used. For example, you can stop your cluster at the end of your day and automatically start your cluster before you get to work. How cool is that, ha?
 
-### First the trigger
+### How to build the automation
 
 We start with the trigger. Do you have specific times that you won’t be using your cluster? For instance, if you only use your cluster during work times between 8AM and 6PM, use a Recurrence trigger to stop your cluster at 6 PM and start it at 8 AM.
 

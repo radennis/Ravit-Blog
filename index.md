@@ -1,14 +1,19 @@
 # Welcome to my blog
 
-My name is [Ravit Dennis](https://www.linkedin.com/in/ravit-dennis-239a5839) and I'm a Software Engineer at Microsoft in the Kusto (Azure Data Explorer) team.
+My name is [Ravit Dennis](https://www.linkedin.com/in/ravit-dennis-239a5839) and I'm a Senior Software Engineer Lead at Microsoft in the Kusto (Azure Data Explorer) team.
 
-In this blog I would add posts about interesting features, and how-tos that many of our customers find useful.
+In this blog I will add posts about interesting features, and how-tos that many of our customers find useful.
 
 ## Posts
 
+### Tools
 * [Kusto and Flow](blogs/KustoAndFlow.md)
-* [How to save $$$ using Flow](blogs/SaveMoneyUsingFlow.md)
-* [Configure automatic autoscale on your cluster](blogs/UseRestToEnableOptimizedAutoscale.md)
+
+### Care about your costs $$$?
+Here are several interesting posts on how to save costs
+* [How to auto-suspend your cluster](blogs/SaveMoneyUsingFlow.md)
+* [How to automatically implement Kusto Advisor recommendations](blogs/AutoImplementRecommendations.md)
+* [Configure automatic autoscale on your cluster using armclient](blogs/UseRestToEnableOptimizedAutoscale.md)
 
 ## More information
 

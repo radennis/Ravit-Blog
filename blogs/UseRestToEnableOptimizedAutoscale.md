@@ -1,6 +1,6 @@
 # How to enable optimized autoscale on your cluster
 
-In this blog you learn how to how to  enable optimized autoscale feature on your cluster, which would enable your cluster to scale between a minimum and maximum capacity (number of instances) you set.
+In this blog you learn how to how to  enable optimized autoscale feature on your cluster, which would enable your cluster to scale between a minimum and maximum capacity (number of instances) you set, based on your usage.
 
 In addition, you will also learn how to run REST requests on Kusto resource and configure them and how to download armclient tool which enables you to run ARM requests very easily.
 
@@ -13,6 +13,8 @@ When you create your cluster, it is created with 2 instances count. When the tim
 To do that, you can either configure an [Azure autoscale rule](https://docs.microsoft.com/en-in/azure/data-explorer/manage-cluster-horizontal-scaling#custom-autoscale) that based on some metrics would scale in/out your cluster.
 
 Alternitively you can use the optimized autoscale feature, in which you provide the minimum and maximum instances count, and have Kusto autoscale your cluster based on optimized parameters.
+
+Doing this is specifically recommended in case your usage changes, as it can both help reduce costs in times where you are not using your cluster, or improve performance for times where you need your cluster to scale for the increasing usage.
 
 ## Preparation
 
