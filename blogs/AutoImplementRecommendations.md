@@ -54,21 +54,21 @@ In this post, I’ll use a Recurrence trigger.
 
 1. The previous step will return the list of Advisor recommendations in the given subscription. To decide on which recommendations to act on we would need to parse the results. To do that, we will use the parse json action. 
 
-Add a 'Data Operation - parse JSON' action. In the Content provide it with the 'body' dynamic object with the Advisor recommendations from the previous step, and let it generate the schema by itself, by clicking the 'Generate from sample' and provide it with a sample of the recommendations.
+    Add a 'Data Operation - parse JSON' action. In the Content provide it with the 'body' dynamic object with the Advisor recommendations from the previous step, and let it generate the schema by itself, by clicking the 'Generate from sample' and provide it with a sample of the recommendations.
 
-To get the sample, I used armclient and ran the same REST call we used in previous step to get all the recommendations 
+    To get the sample, I used armclient and ran the same REST call we used in previous step to get all the recommendations 
 
-`armclient GET https://management.azure.com/subscriptions/yoursubscriptionid/providers/Microsoft.Advisor/recommendations?api-version=2017-04-19`
+    `armclient GET https://management.azure.com/subscriptions/yoursubscriptionid/providers/Microsoft.Advisor/recommendations?api-version=2017-04-19`
 
-> Tip: to learn how to use armclient, you can read more on my post on [How to configure automatic autoscale on your cluster using armclient](blogs/UseRestToEnableOptimizedAutoscale.md)
+    > Tip: to learn how to use armclient, you can read more on my post on [How to configure automatic autoscale on your cluster using armclient](blogs/UseRestToEnableOptimizedAutoscale.md)
 
-![Add recurrence trigger](../resources/images/auto-recommendations-parsejson.PNG "Add recurrence trigger")
+    ![Add recurrence trigger](../resources/images/auto-recommendations-parsejson.PNG "Add recurrence trigger")
 
 1. In the next step we would want to iterate over the parsed recommendations, and decide whether we want to act on them or not. 
 
-For instance, I decided I want to automate all the recommendations that are recommended for Kusto resources, so I used "impactedType" Microsoft.Kusto/Clusters. I also chose to only automate the change SKU recommendations, in the category of performance, so I compared the recommendationType to the specific da4d47d5-b48b-4308-93bc-29d954424e76 GUID (you can find all the GUIDs by running get on the recommendations using armclient as explained above).
+    For instance, I decided I want to automate all the recommendations that are recommended for Kusto resources, so I used "impactedType" Microsoft.Kusto/Clusters. I also chose to only automate the change SKU recommendations, in the category of performance, so I compared the recommendationType to the specific da4d47d5-b48b-4308-93bc-29d954424e76 GUID (you can find all the GUIDs by running get on the recommendations using armclient as explained above).
 
-![Add recurrence trigger](../resources/images/![](../resources/images/recommendations-condition.PNG "Add recurrence trigger")
+    ![Add recurrence trigger](../resources/images/recommendations-condition.PNG "Add recurrence trigger")
 
 1. In the next step, if the conditions are true, we would want to act on them. To be able to act on the recommendation and change the SKU we also need the location of the cluster which currently is not one of the properties we get from the recommendation. So we need to add another action to get the cluster that we want to change, get its location, then add another action to actually change its sku and instances count to the recommended properties.
     1. Add a 'Azure Resource Manager - Read a resource' operation, and add the information on the cluster we want to optimize.
@@ -92,7 +92,7 @@ For instance, I decided I want to automate all the recommendations that are reco
     | **Client API version** | Use the latest Kusto API version, for instance currently it's 2020-09-18. | 
     | **Location** | Use dynamic expression 'Location' taken from the previous action. | 
 
-![Add recurrence trigger](../resources/images/![](../resources/images/recommendations-yes.PNG "Add recurrence trigger")
+    ![Add recurrence trigger](../resources/images/recommendations-yes.PNG "Add recurrence trigger")
 
 1. Save the flow.
 
