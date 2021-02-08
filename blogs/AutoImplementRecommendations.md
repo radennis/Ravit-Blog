@@ -1,5 +1,6 @@
 # How to automatically implement Advisor recommendations
 
+In this post you will learn how to create a Flow that would automatically get Advisor recommendations and act on them.
 
 ## What is Azure Advisor and why should I automate its recommendations?
 
@@ -49,7 +50,7 @@ In this post, I’ll use a Recurrence trigger.
     | **Short Resource Id** | Use 'recommendations' |
     | **Client API version** | Use the latest Advisor API version, for instance currently it's 2017-04-19. |
 
-    ![](../resources/images/read-recommendations.PNG "")
+    ![Add recurrence trigger](../resources/images/read-recommendations.PNG "Add recurrence trigger")
 
 1. The previous step will return the list of Advisor recommendations in the given subscription. To decide on which recommendations to act on we would need to parse the results. To do that, we will use the parse json action. 
 

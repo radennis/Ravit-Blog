@@ -1,4 +1,4 @@
-# How to save $$$ when using Azure Data Explorer
+# How to auto-suspend your cluster
 
 Azure Data Explore is worth your while, now see how you can get the best bang for your buck while using it. In this blog I show you how to trigger automatic stop and start calls for your Azure Data Explorer cluster which saves you $$$.
 
