@@ -73,26 +73,26 @@ In this post, I’ll use a Recurrence trigger.
 1. In the next step, if the conditions are true, we would want to act on them. To be able to act on the recommendation and change the SKU we also need the location of the cluster which currently is not one of the properties we get from the recommendation. So we need to add another action to get the cluster that we want to change, get its location, then add another action to actually change its sku and instances count to the recommended properties.
     1. Add a 'Azure Resource Manager - Read a resource' operation, and add the information on the cluster we want to optimize.
 
-    | Setting   | Description and value   |
-    | --------- | ----------------------- |
-    | **Subscription** | Use the dynamic expression: 'split(items('Apply_to_each_2')?['properties']?['resourceMetadata']?['resourceId'], '/')[2]' which would return the subscription id of the cluster we want to optimize. |
-    | **Resource Group** | Use the dynamic expression: 'split(items('Apply_to_each_2')?['properties']?['resourceMetadata']?['resourceId'], '/')[4]' which would return the resource group of the cluster we want to optimize. |
-    | **Resource Provider** | Use 'Microsoft.Kusto' |
-    | **Short Resource Id** | Use 'clusters/split(items('Apply_to_each_2')?['properties']?['resourceMetadata']?['resourceId'], '/')[8]'. This would return something like 'clusters/clustername' of the cluster you want to optimize. |
-    | **Client API version** | Use the latest Kusto API version, for instance currently it's 2020-09-18. | 
+        | Setting   | Description and value   |
+        | --------- | ----------------------- |
+        | **Subscription** | Use the dynamic expression: 'split(items('Apply_to_each_2')?['properties']?['resourceMetadata']?['resourceId'], '/')[2]' which would return the subscription id of the cluster we want to optimize. |
+        | **Resource Group** | Use the dynamic expression: 'split(items('Apply_to_each_2')?['properties']?['resourceMetadata']?['resourceId'], '/')[4]' which would return the resource group of the cluster we want to optimize. |
+        | **Resource Provider** | Use 'Microsoft.Kusto' |
+        | **Short Resource Id** | Use 'clusters/split(items('Apply_to_each_2')?['properties']?['resourceMetadata']?['resourceId'], '/')[8]'. This would return something like 'clusters/clustername' of the cluster you want to optimize. |
+        | **Client API version** | Use the latest Kusto API version, for instance currently it's 2020-09-18. | 
 
     1. Add a 'Azure Resource Manager - Create or update a resource' operation, and add the information on the cluster we want to optimize.
     
-    | Setting   | Description and value   |
-    | --------- | ----------------------- |
-    | **Subscription** | Use the dynamic expression: 'split(items('Apply_to_each_2')?['properties']?['resourceMetadata']?['resourceId'], '/')[2]' which would return the subscription id of the cluster we want to optimize. |
-    | **Resource Group** | Use the dynamic expression: 'split(items('Apply_to_each_2')?['properties']?['resourceMetadata']?['resourceId'], '/')[4]' which would return the resource group of the cluster we want to optimize. |
-    | **Resource Provider** | Use 'Microsoft.Kusto' |
-    | **Short Resource Id** | Use 'clusters/split(items('Apply_to_each_2')?['properties']?['resourceMetadata']?['resourceId'], '/')[8]'. This would return something like 'clusters/clustername' of the cluster you want to optimize. |
-    | **Client API version** | Use the latest Kusto API version, for instance currently it's 2020-09-18. | 
-    | **Location** | Use dynamic expression 'Location' taken from the previous action. | 
+        | Setting   | Description and value   |
+        | --------- | ----------------------- |
+        | **Subscription** | Use the dynamic expression: 'split(items('Apply_to_each_2')?['properties']?['resourceMetadata']?['resourceId'], '/')[2]' which would return the subscription id of the cluster we want to optimize. |
+        | **Resource Group** | Use the dynamic expression: 'split(items('Apply_to_each_2')?['properties']?['resourceMetadata']?['resourceId'], '/')[4]' which would return the resource group of the cluster we want to optimize. |
+        | **Resource Provider** | Use 'Microsoft.Kusto' |
+        | **Short Resource Id** | Use 'clusters/split(items('Apply_to_each_2')?['properties']?['resourceMetadata']?['resourceId'], '/')[8]'. This would return something like 'clusters/clustername' of the cluster you want to optimize. |
+        | **Client API version** | Use the latest Kusto API version, for instance currently it's 2020-09-18. | 
+        | **Location** | Use dynamic expression 'Location' taken from the previous action. | 
 
-    ![Add recurrence trigger](../resources/images/recommendations-yes.PNG "Add recurrence trigger")
+        ![Add recurrence trigger](../resources/images/recommendations-yes.PNG "Add recurrence trigger")
 
 1. Save the flow.
 
