@@ -14,6 +14,7 @@ Here are several interesting posts on how to save costs
 * [How to auto-suspend your cluster](blogs/SaveMoneyUsingFlow.md)
 * [How to automatically implement Kusto Advisor recommendations](blogs/AutoImplementRecommendations.md)
 * [Configure automatic autoscale on your cluster using armclient](blogs/UseRestToEnableOptimizedAutoscale.md)
+* [How Kusto Insights can help you reduce costs - success story to inspire](https://techcommunity.microsoft.com/t5/azure-data-explorer/adx-insights-azure-monitor-for-azure-data-explorer-preview/ba-p/2070257)
 
 ## More information
 
