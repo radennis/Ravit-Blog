@@ -1,6 +1,6 @@
 # Welcome to my blog
 
-My name is [Ravit Dennis](https://www.linkedin.com/in/ravit-dennis-239a5839) and I'm a Senior Software Engineer Lead at Microsoft in the Kusto (Azure Data Explorer) team.
+My name is [Ravit Dennis](https://www.linkedin.com/in/ravit-dennis-239a5839) and I'm a Senior Software Engineering Manager at Microsoft in the Kusto (Azure Data Explorer) team.
 
 In this blog I will add posts about interesting features, and how-tos that many of our customers find useful.
 
